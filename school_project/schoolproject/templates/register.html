@@ -1,0 +1,68 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div class="wrapper">
+        <div class="form-left">
+            <h2 class="text-uppercase">SchoolStore</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et molestie ac feugiat sed. Diam volutpat commodo.
+            </p>
+            <p class="text">
+                <span>If you are already registered , Please Sign IN</span>
+            </p>
+            <div class="form-field">
+                <a href="{% url 'Store:login' %}"><input type="submit" class="account" value="Have an Account?"></a>
+            </div>
+            {% for msg1 in messages %}
+            <div class="alert alert-primary" role="alert">
+                {{msg1}}
+            </div>
+             {% endfor %}
+
+
+        </div>
+
+        <form method="post" class="form-right">
+            {% csrf_token %}
+            <h2 class="text-uppercase">Registration form</h2>
+            <div class="mb-3">
+                <label>Username</label>
+                <input type="text" class="input-field" name="username" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" id="first_name" class="input-field">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" id="last_name" class="input-field">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Your Email</label>
+                <input type="email" class="input-field" name="email" required>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label>Password</label>
+                    <input type="password" name="password" id="pwd" class="input-field">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <label>Current Password</label>
+                    <input type="password" name="password1" id="cpwd" class="input-field">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="option">I agree to the <a href="#">Terms and Conditions</a>
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <div class="form-field">
+                <button type="submit" class="register">Register</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
